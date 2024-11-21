@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Cake To Nn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebf2;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+        }
+        .message {
+            font-size: 24px;
+            color: #ff3399;
+            font-weight: 600;
+            opacity: 0;
+            animation: showMessage 2s forwards;
+            animation-delay: 2s;
+            max-width: 80%;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างข้อความกับเค้ก */
+        }
+        @keyframes showMessage {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .cake-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            background: url('https://th.bing.com/th/id/R.afcd3b2369f2ec86e5e0217cbe6d7571?rik=X8xxxKZTzlDfyw&riu=http%3a%2f%2fclipartix.com%2fwp-content%2fuploads%2f2016%2f05%2fLarge-chocolate-cake-with-pink-cream-clipart.png&ehk=Zkb6G%2fmyqy%2bkmwus89rI3rsEepOABaNpfaCy9yFfZug%3d&risl=&pid=ImgRaw&r=0') no-repeat center center;
+            background-size: contain;
+            border-radius: 20px;
+            /* ลบ box-shadow ออก */
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* ทำให้เค้กอยู่ต่ำลง */
+            margin-top: 60px; /* ลดตำแหน่งให้เค้กต่ำลง */
+            z-index: 1; /* ให้เค้กอยู่เหนือข้อความ */
+        }
+        .candle {
+            position: absolute;
+            width: 20px;
+            height: 70px;
+            background: #ffcc00;
+            top: -45px; /* ทำให้เทียนดูเชื่อมกับเค้ก */
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 8px;
+            border: 3px solid #ff9900;
+            cursor: pointer;
+            z-index: 2; /* ให้เทียนอยู่บนสุด */
+        }
+        .flame {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 25px;
+            height: 30px;
+            background: radial-gradient(circle, #ff7f50 60%, #ff4500 90%);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
+            animation: flicker 0.5s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); }
+            100% { transform: translateX(-50%) scale(0.9); }
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        🎉 อายุ 20 ปีแล้ว ขอให้ยิ้มเยอะๆ รักเบบี๋นานๆ เริ่มต้นใหม่นะคะ ปีหน้าจะทำให้ดีกว่านี้ค่ะ 🎂
+    </div>
+    <div class="cake-container">
+        <div class="candle" onclick="blowCandle(this)">
+            <div class="flame"></div>
+        </div>
+    </div>
+
+    <script>
+        function blowCandle(candle) {
+            const flame = candle.querySelector('.flame');
+            const message = document.querySelector('.message');
+            if (flame) {
+                flame.style.animation = 'fadeOut 1s forwards'; // เริ่มแอนิเมชันดับไฟ
+                setTimeout(() => {
+                    flame.style.display = 'none'; // ซ่อนไฟหลังจากดับ
+                    message.style.opacity = 1; // ทำให้ข้อความแสดง
+                }, 1000); // หลังจาก 1 วินาที
+            }
+        }
+    </script>
+</body>
+</html>

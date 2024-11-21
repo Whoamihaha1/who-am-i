@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ล็อกอินด้วยรหัสผ่าน</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        label {
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        input[type="password"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        button {
+            background: #6a11cb;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #2575fc;
+        }
+        .error {
+            color: #ff6666;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+    <script>
+        function checkPassword() {
+            const passwordInput = document.getElementById('password').value;
+            const correctPassword = "120466"; // รหัสผ่านที่ตั้งไว้
+            const errorMessage = document.getElementById('error-message');
+            
+            if (passwordInput === correctPassword) {
+                window.location.href = "file:///C:/Program%20Files/Go/FuK/Pro%20ject%20gf/luvu.html" ;
+            } else {
+                errorMessage.textContent = "รหัสผ่านไม่ถูกต้อง! กรุณาลองใหม่";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>รหัสอะไรน้าาาาา</h1>
+        <form onsubmit="event.preventDefault(); checkPassword();">
+            <label for="password">รหัสผ่าน:</label>
+            <input type="password" id="password" name="password" placeholder="กรอกรหัสผ่าน" required>
+            <button type="submit">เข้าสู่ระบบ</button>
+        </form>
+        <p id="error-message" class="error"></p>
+    </div>
+</body>
+</html>
